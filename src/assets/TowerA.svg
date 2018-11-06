@@ -1,0 +1,37 @@
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 444.2 498">
+    <defs>
+        <style>
+            .cls-1{fill:none;}
+            .cls-2{clip-path:url(#clip-path);}
+            .cls-3{isolation:isolate;}
+            .cls-4{fill:#b6ce3c;}
+        </style>
+        <clipPath id="clip-path">
+            <polygon class="cls-1" points="0.8 63.8 62 63.8 62 0 367 0 367 134.3 400.6 116.4 400.6 105.8 415.7 105.8 440.8 300.7 440.8 334.2 412.3 468 412.3 498 5 498 0.8 63.8"/>
+        </clipPath>
+    </defs>
+    <g class="cls-2">
+        <image class="cls-3" width="192" height="246" transform="scale(2.31 2.02)" xlink:href="./TowerA.png"/>
+    </g>
+    <g class="cls-2">
+        <polygon class="cls-4" points="387.2 417.1 387.2 498 10 493.3 10 417.1 387.2 417.1"/>
+    </g>
+    <g class="cls-2">
+        <rect class="cls-4" x="10" y="350.2" width="377.1" height="63.8"/>
+    </g>
+    <g class="cls-2">
+        <rect class="cls-4" x="10" y="281.7" width="377.1" height="65.4"/>
+    </g>
+    <g class="cls-2">
+        <rect class="cls-4" x="10" y="213.2" width="377.1" height="63.8"/>
+    </g>
+    <g class="cls-2">
+        <rect class="cls-4" x="8.3" y="141.6" width="355.4" height="68.5"/>
+    </g>
+    <g class="cls-2">
+        <rect class="cls-4" x="8.3" y="73.1" width="355.4" height="65.4"/>
+    </g>
+    <g class="cls-2">
+        <rect class="cls-4" x="65.3" y="3.1" width="298.4" height="65.4"/>
+    </g>
+</svg>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ingreso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content center text-center padding>
+  <div class="row justify-content-center">
+    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onLogin()">      
+      <span *ngIf="loginForm.get('email').touched && !loginForm.get('email').valid && loginForm.get('email').dirty">
+          <strong>Por favor ingrese un email válido</strong>
+      </span>
+      <div class="form-group">
+        <input type="text" id="email" name="email" placeholder="Email/Usuario" formControlName="email" [formGroup]="loginForm">
+      </div>        
+      <div class="form-group">
+        <input type="password" id="password" name="password" placeholder="Contraseña" formControlName="password" [formGroup]="loginForm">
+      </div>        
+      <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+    </form>
+  </div>
+</ion-content>

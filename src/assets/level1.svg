@@ -1,0 +1,29 @@
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 482 470">
+    <defs>
+        <style>
+            .cls-1{fill:none;}
+            .cls-2{clip-path:url(#clip-path);}
+            .cls-3{isolation:isolate;}
+            .cls-4{fill:#b3391e;}
+        </style>
+        <clipPath id="clip-path">
+            <rect class="cls-1" width="482" height="470"/>
+        </clipPath>
+    </defs>
+    <title>level1</title>
+    <g class="cls-2">
+        <image class="cls-3" width="750" height="534" transform="translate(671.32 586.46) rotate(180) scale(1.31 1.31)" xlink:href="./level1.jpg"/>
+    </g>
+    <g class="cls-2">
+        <polygon class="cls-4" points="323.1 169 420.5 169 416.1 211.9 323.1 215.4 323.1 169"/>
+    </g>
+    <g class="cls-2">
+        <polygon class="cls-4" points="323.1 254.1 410 254.1 416.7 214.8 323.1 217.6 323.1 254.1"/>
+    </g>
+    <g class="cls-2">
+        <polygon class="cls-4" points="323.1 256.4 323.1 295.4 405.8 295.4 410.2 256.4 323.1 256.4"/>
+    </g>
+    <g class="cls-2">
+        <polyline class="cls-4" points="323.1 297.7 323.1 332.6 402 332.6 406.4 298.2"/>
+    </g>
+</svg>
