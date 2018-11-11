@@ -14,11 +14,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { TowerAPage } from './map/tower-a/tower-a.page';
+import { Level0Page } from './map/tower-a/level0/level0.page';
+import { Level1Page } from './map/tower-a/level1/level1.page';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TowerAPage
+    TowerAPage,
+    Level0Page,
+    Level1Page
   ],
   entryComponents: [],
   imports: [

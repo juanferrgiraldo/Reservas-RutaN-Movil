@@ -5,10 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MapPage } from './map.page';
+import { Level0Page } from './level0.page';
 
 const routes: Routes = [
-  { path: '', component: MapPage },
+  {
+    path: '',
+    component: Level0Page
+  }
 ];
 
 @NgModule({
@@ -18,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MapPage]
+  declarations: [Level0Page]
 })
-export class MapPageModule {}
+export class Level0PageModule {}

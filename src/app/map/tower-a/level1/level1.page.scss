@@ -1,0 +1,22 @@
+.level1 {
+  fill: none;
+  position: relative;
+  display: block;
+  margin: 5px, 5px, 5px, 5px;    
+}
+.multipleRoom {
+  fill: #B3391E;     
+}
+.multipleRoom:hover {
+  fill: #a01e04;
+  opacity: 1;
+}
+.cls-1{
+  fill:none;
+}
+.cls-2{
+  clip-path:url(#clip-path);
+}
+.cls-3{
+  isolation:isolate;
+}

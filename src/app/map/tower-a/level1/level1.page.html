@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>level1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="form-row">
+    <div class="level1" [ngClass]="isClicked ? 'col-lg-6 col-md col-sm' : 'col-lg-10 col-md col-sm'">
+        <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 482 470">
+            <defs>
+                <clipPath id="clip-path">
+                    <rect class="level1" width="482" height="470"/>
+                </clipPath>
+            </defs>
+            <g class="cls-2">
+                <image class="cls-3" width="750" height="534" transform="translate(671.32 586.46) rotate(180) scale(1.31 1.31)" xlink:href="../../../../assets/level1.jpg"/>                                
+            </g>
+                <polygon class="multipleRoom" (click)="onSelectedSM('Einsten')" matTooltip="Sala Multiple 'Eisnten'" points="323.1 169 420.5 169 416.1 211.9 323.1 215.4 323.1 169"/>
+                <polygon class="multipleRoom" (click)="onSelectedSM('Newton')" matTooltip="Sala Multiple 'Newton'" points="323.1 254.1 410 254.1 416.7 214.8 323.1 217.6 323.1 254.1"/>
+                <polygon class="multipleRoom" (click)="onSelectedSM('Swartz')" matTooltip="Sala Multiple 'Swartz'" points="323.1 256.4 323.1 295.4 405.8 295.4 410.2 256.4 323.1 256.4"/>
+                <polyline class="multipleRoom" (click)="onSelectedSM('Turing')" matTooltip="Sala Multiple 'Turing'" points="323.1 297.7 323.1 332.6 402 332.6 406.4 298.2"/>
+        </svg>
+    </div>
+    <!--<div *ngIf="isClicked === true" class="ml-5 col-lg-5 col-md col-sm">
+        <app-multi-room-info [idRoom]="clickedSM"></app-multi-room-info>
+    </div>-->
+</div>
+</ion-content>
