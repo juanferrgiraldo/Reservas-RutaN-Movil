@@ -1,0 +1,25 @@
+.tower {
+  position: relative;       
+}
+.level {    
+  fill:#FFFFFF;
+  opacity: 0.1;
+  &:hover {
+      opacity: 0.5;
+      fill: #B4CB4A;
+  }
+}
+.title {
+  text-align: center;
+  padding-top: 5px;
+  color: #C8DE46;
+}
+.cls-1 {
+  fill:none;
+}
+.cls-2 {
+  clip-path:url(#clip-path);
+}
+.cls-3 {
+  isolation: isolate;
+}

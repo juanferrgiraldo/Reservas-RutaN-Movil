@@ -1,9 +1,50 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tower-a</ion-title>
+    <ion-title>Torre A</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div class="form-row">
+    <div class="ml-4" [ngClass]="isClicked ? 'col-lg-3 col-md-3 col-sm':'col-lg-3 col-md col-sm-12'">
+      <h3 class="title">Torre A</h3>
+      <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 444.2 498">
+        <defs>        
+          <clipPath id="clip-path">
+            <polygon class="tower" points="0.8 63.8 62 63.8 62 0 367 0 367 134.3 400.6 116.4 400.6 105.8 415.7 105.8 440.8 300.7 440.8 334.2 412.3 468 412.3 498 5 498 0.8 63.8"/>
+          </clipPath>
+        </defs>
+        <g class="cls-2">
+            <image class="cls-3" width="192" height="246" transform="scale(2.31 2.02)" xlink:href="../../../assets/TowerA.png"/>
+        </g>
+            <polygon (click)="onSelectedLevel('level0')" matTooltip="Nivel #0" class="level" points="387.2 417.1 387.2 498 10 493.3 10 417.1 387.2 417.1"/>
+            <rect (click)="onSelectedLevel('level1')" matTooltip="Nivel #1" class="level" x="10" y="350.2" width="377.1" height="63.8"/>
+            <rect matTooltip="Nivel #2" class="level" x="10" y="281.7" width="377.1" height="65.4"/>
+            <rect matTooltip="Nivel #3" class="level" x="10" y="213.2" width="377.1" height="63.8"/>
+            <rect matTooltip="Nivel #4" class="level" x="8.3" y="141.6" width="355.4" height="68.5"/>
+            <rect matTooltip="Nivel #5" class="level" x="8.3" y="73.1" width="355.4" height="65.4"/>
+            <rect matTooltip="Nivel #6" class="level" x="65.3" y="3.1" width="298.4" height="65.4"/> 
+      </svg>
+    </div>
+    <div *ngIf="!isClicked" class="col-lg-6 col-md col-sm offset-lg-2">
+      <h3>Why do we use it?</h3>
+      <p>
+        It is a long established fact that a reader will be distracted 
+        by the readable content of a page when looking at its layout.
+        The point of using Lorem Ipsum is that it has a more-or-less normal
+         distribution of letters, as opposed to using 'Content here, content here', 
+         making it look like readable English. Many desktop publishing packages 
+         and web page editors now use Lorem Ipsum as their default model text, 
+         and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+      </p>
+    </div>
+    <div *ngIf="clickedLevel === 'level0'" class="col-lg-7 col-md col-sm offset-lg-1">
+      <h3 class="title">Nivel 0</h3>
+      <app-level0></app-level0>
+    </div>
+    <div *ngIf="clickedLevel === 'level1'" class="col-lg-7 col-md col-sm offset-lg-1">
+      <h3 class="title">Nivel 1</h3>
+      <app-level1></app-level1>
+    </div>
+  </div>
 </ion-content>
