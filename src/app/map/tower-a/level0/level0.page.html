@@ -9,9 +9,6 @@
     <div class="level0 " [ngClass]="isClicked ? 'col-lg-6 col-md col-sm' : 'col-lg-10 col-md col-sm'">
       <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 498 474">
         <defs>
-          <style>
-            
-          </style>
           <clipPath id="clip-path">
             <polygon class="cls-1" points="269.5 17 266.5 30 266.5 44.3 273.1 45.7 273.8 59 262.5 60.3 269.1 83 304.7 83 306 105.7 297.5 106.3 297.5 92 289.4 92 288.2 97 282.5 97 282.5 93 269.5 93.7 274.8 118.3 302.8 116.3 320.2 342 435.5 342 439.5 293.7 456.2 141.7 478.8 13 269.5 17"/>
           </clipPath>
@@ -36,8 +33,8 @@
         </g>
       </svg>
     </div>
-    <!--<div *ngIf="isClicked === true" class="ml-5 col-lg-5 col-md col-sm">
+    <div *ngIf="isClicked === true" class="ml-5 col-lg-5 col-md col-sm">
           <app-auditoriums-info [idRoom]="clickedAuditorium"></app-auditoriums-info>
-      </div>-->
+      </div>
   </div>
 </ion-content>

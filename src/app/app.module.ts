@@ -9,6 +9,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HttpService } from './services/http.service';
+import { AuditoriumService } from './services/auditorium.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,13 +17,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { TowerAPage } from './map/tower-a/tower-a.page';
 import { Level0Page } from './map/tower-a/level0/level0.page';
 import { Level1Page } from './map/tower-a/level1/level1.page';
+import { AuditoriumsInfoPage } from './rooms/auditoriums-info/auditoriums-info.page';
 
 @NgModule({
   declarations: [
     AppComponent,
     TowerAPage,
     Level0Page,
-    Level1Page
+    Level1Page,
+    AuditoriumsInfoPage
   ],
   entryComponents: [],
   imports: [
@@ -38,7 +41,8 @@ import { Level1Page } from './map/tower-a/level1/level1.page';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    HttpService
+    HttpService,
+    AuditoriumService
   ],
   bootstrap: [AppComponent]
 })
