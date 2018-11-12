@@ -1,12 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Nivel 0</ion-title>
+      <ion-buttons>
+          <button ion-button [routerLink]="['/mapa/torrea']"><ion-icon name="md-arrow-back"></ion-icon></button>
+        </ion-buttons>
+    <ion-title>Nivel 0</ion-title>    
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <div class="form-row">
-    <div class="level0 " [ngClass]="isClicked ? 'col-lg-6 col-md col-sm' : 'col-lg-10 col-md col-sm'">
+    <div class="level0 " [ngClass]="isClicked ? 'col-lg-6 col-md col-sm' : 'col-lg-10 col-md col-sm-12'">
       <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 498 474">
         <defs>
           <clipPath id="clip-path">
@@ -31,10 +34,11 @@
             <polygon (click)="onSelectedAuditorium('Pitagoras')" matTooltip="Auditorio 'Pitagoras'" points="323.8 220.5 422.8 220.5 422.8 157.3 323.8 156.5 323.8 220.5"/>                    
           </g>
         </g>
-      </svg>
+      </svg>      
     </div>
-    <div *ngIf="isClicked === true" class="ml-5 col-lg-5 col-md col-sm">
-          <app-auditoriums-info [idRoom]="clickedAuditorium"></app-auditoriums-info>
-      </div>
-  </div>
+    <div *ngIf="isClicked === true" class="col-lg-5 col-md col-sm">
+      <app-auditoriums-info [idRoom]="clickedAuditorium"></app-auditoriums-info>
+    </div>
+  </div>  
 </ion-content>
+    

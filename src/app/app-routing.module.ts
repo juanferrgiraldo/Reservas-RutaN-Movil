@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'ingresar', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'mapa', loadChildren: './map/map.module#MapPageModule' },
   { path: 'mapa/torrea', component: TowerAPage },
-  { path: 'mapa/nivel0', component: Level0Page },
-  { path: 'mapa/nivel1', component: Level1Page },
+  { path: 'mapa/torrea/nivel0', component: Level0Page },
+  { path: 'mapa/torrea/nivel1', component: Level1Page },
   { path: 'info', component: AuditoriumsInfoPage },
 ];
 

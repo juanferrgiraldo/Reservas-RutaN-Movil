@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-level0',
@@ -10,7 +11,7 @@ export class Level0Page implements OnInit {
   private isClicked = false;
   private clickedAuditorium: string;
 
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
