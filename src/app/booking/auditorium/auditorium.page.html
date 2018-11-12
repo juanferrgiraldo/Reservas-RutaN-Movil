@@ -1,0 +1,256 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Reserva de auditorios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div>        
+        <hr>
+        <div class="form-group">
+          <form class="form-horizontal" [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="nomenclature" class="font-weight-bold">Nombre del auditorio a reservar</label>
+              <p id="nomenclature">{{roomInfo.nomenclature}}</p>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="responsableId" class="font-weight-bold">Identificación de la persona responsable</label>
+                <input type="text" class="form-control" required formControlName="responsableId" name="responsableId" id="responsableId"
+                  placeholder="Identificación">
+                <div *ngIf="bookingForm.get('responsableId').touched">
+                  <span id="danger" *ngIf="bookingForm.hasError('required', 'responsableId') || bookingForm.get('responsableId').invalid ">
+                    *Ingrese un documento válido.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="responsable" class="font-weight-bold">Responsable de la reserva</label>
+              <input type="text" class="form-control" required formControlName="responsable" name="responsable" placeholder="Nombres">
+              <div *ngIf="bookingForm.get('responsable').touched">
+                <span id="danger" *ngIf="bookingForm.hasError('required', 'responsable')">
+                  *Ingrese un nombre válido.
+                </span>
+              </div>
+            </div>
+            <div class="form-row" id="details">
+              <div class="form-group col-md-6">
+                <label for="organization" class="font-weight-bold">Organización</label>
+                <input type="text" class="form-control" required formControlName="organization" name="organization" id="organization"
+                  placeholder="Empresa u organización">
+                <div *ngIf="bookingForm.get('organization').touched">
+                  <span id="danger" *ngIf="bookingForm.hasError('required', 'organization')">
+                    *Ingrese una dato de empresa válido.
+                  </span>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="phone" class="font-weight-bold">Teléfono/Celular</label>
+                <input type="text" class="form-control" required formControlName="responsablePhone" name="Phone" id="phone"
+                  placeholder="telefono">
+                <div *ngIf="bookingForm.get('responsablePhone').touched">
+                  <span id="danger" *ngIf="bookingForm.hasError('required', 'responsablePhone') || bookingForm.get('responsablePhone').invalid">
+                    *Ingrese un teléfono válido.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-row" id="details">
+              <div class="form-group col-md-6">
+                <label for="email" class="font-weight-bold">Correo electrónico</label>
+                <input type="email" class="form-control" required formControlName="responsableEmail" id="email" name="email"
+                  placeholder="email">
+                <div *ngIf="bookingForm.get('responsableEmail').touched">
+                  <span id="danger" *ngIf="bookingForm.hasError('required', 'responsableEmail') || bookingForm.hasError('email', 'responsableEmail')">
+                    *Ingrese un email válido
+                  </span>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="assistants" class="font-weight-bold">Número de asistentes</label>
+                <input type="number" class="form-control" required formControlName="assistants" name="assistants" min="1" max="{{roomInfo.capacity}}"
+                  id="assistants" placeholder="Número de asistentes">
+                <div *ngIf="bookingForm.get('assistants').touched">
+                  <span id="danger" *ngIf="bookingForm.hasError('min', 'assistants')">
+                    *Seleccione un numero de asistentes válido.
+                  </span>
+                  <span id="danger" *ngIf="bookingForm.hasError('max', 'assistants')">
+                    *Ha superado el numero de asistentes permitidos para la sala
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="event" class="font-weight-bold">Nombre del evento</label>
+              <input type="text" class="form-control" required formControlName="eventName" name="Event" id="event"
+                placeholder="Nombre del evento">
+              <div *ngIf="bookingForm.get('eventName').touched">
+                <span id="danger" *ngIf="bookingForm.hasError('required', 'eventName')">
+                  *Ingrese un nombre válido para el evento.
+                </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="purpose" class="font-weight-bold">Propósito de la reserva</label>
+              <textarea class="form-control" required formControlName="purpose" name="purpose" id="purpose" rows="1"
+                placeholder="Proposito"></textarea>
+              <div *ngIf="bookingForm.get('purpose').touched">
+                <span id="danger" *ngIf="bookingForm.hasError('required', 'purpose')">
+                  *Ingrese una descripción válida.
+                </span>
+              </div>
+            </div>
+            <hr>
+            <label class="font-weight-bold">Fecha de reserva</label>
+            <div class="form-row" id="details">
+              <div class="form-group col-md-5">
+                <label for="initDate" class="font-weight-bold">Desde</label>
+                <input type="datetime-local" class="form-control" [(ngModel)]="booking.initdate" [ngModelOptions]="{standalone: true}"
+                  required name="initDate" id="initDate">
+              </div>
+              <div class="form-group col-md-5">
+                <label for="finishDate" class="font-weight-bold">Hasta</label>
+                <input type="datetime-local" class="form-control" [(ngModel)]="booking.finishdate" [ngModelOptions]="{standalone: true}"
+                  required name="finishDate" id="finishDate">
+              </div>
+              <div class="form-group col-md-2 mt-2">
+                <br>
+                <i class="dateButton fa fa-plus-circle fa-2x" (click)="addDate()"></i>
+              </div>
+              <span id="danger" *ngIf="!isValidDate">
+                *Por favor seleccione una fecha válida
+              </span>
+            </div>
+            <h6 *ngFor="let date of showDatesArray; let i = index">
+              <div class="form-row" id="details">
+                <div class="form-group col-md-4">{{date.initdate}} - </div>
+                <div class="form-group col-md-1">--</div>
+                <div class="form-group col-md-5">{{date.finishdate}}</div>
+                <div class="form-group col-md-2 mt-2">
+                    <i class="dateButton fa fa-minus-circle fa-2x" (click)="removeDate(i)"></i>              
+                </div>
+              </div>
+            </h6>
+            <hr>
+            <div class="form-group">
+              <div class="form-group">
+                <label class="font-weight-bold">Organización del espacio</label>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="distribution">Opciones</label>
+                </div>
+                <select class="custom-select" id="distribution" formControlName="selectDist" name="distribution">
+                  <option [ngValue]="null" disabled>Seleccione una distribución del espacio...</option>
+                  <option *ngFor="let dist of listOptions" [ngValue]="dist.id">{{dist.name}}</option>
+                </select>
+                <div *ngIf="bookingForm.get('selectDist').touched">
+                  <span id="danger" *ngIf="bookingForm.get('selectDist').invalid">
+                    *Seleccione una distribución válida.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" id="resources">
+              <div>
+                <label class="font-weight-bold">Recursos del espacio</label>
+              </div>
+              <div class="form-check">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="videoBeam" [ngModelOptions]="{standalone: true}"
+                    name="videoBeam">
+                  <label class="form-check-label">Video Beam</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="internet" [ngModelOptions]="{standalone: true}"
+                    name="internet">
+                  <label class="form-check-label">Internet</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="pointing" [ngModelOptions]="{standalone: true}"
+                    name="pointing">
+                  <label class="form-check-label">Señalador</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="catering" [ngModelOptions]="{standalone: true}"
+                    name="catering">
+                  <label class="form-check-label">Catering (Cocineta)</label>
+                </div>
+              </div>
+              <div class="form-check">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="sound" [ngModelOptions]="{standalone: true}"
+                    name="sound">
+                  <label class="form-check-label">Sonido</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="televisor" [ngModelOptions]="{standalone: true}"
+                    name="televisor">
+                  <label class="form-check-label">Televisor</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="microphone" [ngModelOptions]="{standalone: true}"
+                    name="microphone">
+                  <label class="form-check-label">Microfono</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="skype" [ngModelOptions]="{standalone: true}"
+                    name="skype">
+                  <label class="form-/auditorium/searchcheck-label">Video conferencia con Skype</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" id="aditionalInformation">
+              <div>
+                <label class="font-weight-bold">Información y servicios adicionales</label>
+              </div>
+              <div class="form-check">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="translator" [ngModelOptions]="{standalone: true}"
+                    name="translator">
+                  <label class="form-check-label">Traducción</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="logistic" [ngModelOptions]="{standalone: true}"
+                    name="logistic">
+                  <label class="form-check-label">Operador logístico</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="register" [ngModelOptions]="{standalone: true}"
+                    name="register">
+                  <label class="form-check-label">Punto de registro</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="stewardess" [ngModelOptions]="{standalone: true}"
+                    name="stewardess">
+                  <label class="form-check-label">Azafata (tiene un coste de $20.000 con un mínimo de 4
+                    horas, confirmar con dos días de antelación)</label>
+                </div>
+              </div>
+            </div>
+            <button type="submit" [disabled]="!bookingForm.valid" class="btn btn-primary mb-2" 
+            data-toggle="modal" data-target="#myModal">Reservar</button>
+          </form>
+        </div>
+      </div>
+    
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg-centered">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Su reserva ha sido creada!</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>Por favor seleccione la siguiente acción a realizar</p>        
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" (click)="goToHome()">Ir a al menú</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="clearData()">Realizar otra reserva</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</ion-content>

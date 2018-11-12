@@ -9,6 +9,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HttpService } from './services/http.service';
+import { AuthService } from './services/auth.service';
 import { AuditoriumService } from './services/auditorium.service';
 import { MultiRoomService } from './services/multi-room.service';
 import { BookingService } from './services/booking.service';
@@ -21,6 +22,8 @@ import { Level0Page } from './map/tower-a/level0/level0.page';
 import { Level1Page } from './map/tower-a/level1/level1.page';
 import { AuditoriumsInfoPage } from './rooms/auditoriums-info/auditoriums-info.page';
 import { MultiRoomInfoPage } from './rooms/multi-room-info/multi-room-info.page';
+import { AuditoriumPage } from './booking/auditorium/auditorium.page';
+import { MultiRoomPage } from './booking/multi-room/multi-room.page';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { MultiRoomInfoPage } from './rooms/multi-room-info/multi-room-info.page'
     Level0Page,
     Level1Page,
     AuditoriumsInfoPage,
-    MultiRoomInfoPage
+    MultiRoomInfoPage,
+    AuditoriumPage,
+    MultiRoomPage
   ],
   entryComponents: [],
   imports: [
@@ -48,7 +53,8 @@ import { MultiRoomInfoPage } from './rooms/multi-room-info/multi-room-info.page'
     HttpService,
     AuditoriumService,
     MultiRoomService,
-    BookingService
+    BookingService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

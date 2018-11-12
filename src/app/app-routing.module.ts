@@ -6,6 +6,8 @@ import { Level0Page } from './map/tower-a/level0/level0.page';
 import { Level1Page } from './map/tower-a/level1/level1.page';
 import { AuditoriumsInfoPage } from './rooms/auditoriums-info/auditoriums-info.page';
 import { MultiRoomInfoPage } from './rooms/multi-room-info/multi-room-info.page';
+import { AuditoriumPage } from './booking/auditorium/auditorium.page';
+import { MultiRoomPage } from './booking/multi-room/multi-room.page';
 
 const routes: Routes = [
   { path: '', redirectTo: 'ingresar', pathMatch: 'full' },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'mapa/torrea/nivel1', component: Level1Page },
   { path: 'info', component: AuditoriumsInfoPage },
   { path: 'multi-room-info', component: MultiRoomInfoPage },
+  { path: 'reservas/auditorios', component: AuditoriumPage },
+  { path: 'reservas/salasmultiples', component: MultiRoomPage },
 ];
 
 @NgModule({
