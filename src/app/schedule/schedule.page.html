@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>schedule</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <app-schedule-header
+    [(view)]="view"
+    [(viewDate)]="viewDate"
+    [locale]="locale"
+    (viewDateChange)="onScheduleBookings()"
+    (viewChange)="onScheduleBookings()">
+  </app-schedule-header>
+  
+  <ng-template #loading>
+    <div class="text-center">
+      <i class="fa fa-spin fa-spinner fa-5x"></i>
+      <br>
+      Loading events...
+    </div>
+  </ng-template>
+  
+  <div *ngIf="events$ | async as events; else loading">
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view
+        *ngSwitchCase="'month'"
+        [viewDate]="viewDate"
+        [events]="events"
+        [locale]="locale"
+        [activeDayIsOpen]="activeDayIsOpen"
+        (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="eventClicked($event.event)"
+        [weekStartsOn]="weekStartsOn">
+      </mwl-calendar-month-view>
+      <mwl-calendar-week-view
+        *ngSwitchCase="'week'"
+        [viewDate]="viewDate"
+        [events]="events"
+        [locale]="locale"
+        (eventClicked)="eventClicked($event.event)"
+        [weekStartsOn]="weekStartsOn">
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view
+        *ngSwitchCase="'day'"
+        [viewDate]="viewDate"
+        [events]="events"
+        [locale]="locale"
+        (eventClicked)="eventClicked($event.event)">
+      </mwl-calendar-day-view>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3 ml-3 mt-5">
+      <h5>Leyenda:</h5>
+    </div>
+    <div class="form-group col-md-3 mt-5">
+      <svg>
+        <circle cx="15" cy="15" r="10" fill="#6fb446" />
+        <text x="30" y="20">Auditorios</text>
+      </svg>
+    </div>
+    <div class="form-group col-md-3 mt-5">
+        <svg>
+          <circle cx="15" cy="15" r="10" fill="#c67643" />
+          <text x="30" y="20">Salas múltiples</text>
+        </svg>      
+      </div>
+  </div>
+</ion-content>

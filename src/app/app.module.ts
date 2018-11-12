@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import localeEs from '@angular/common/locales/es';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -24,6 +30,10 @@ import { AuditoriumsInfoPage } from './rooms/auditoriums-info/auditoriums-info.p
 import { MultiRoomInfoPage } from './rooms/multi-room-info/multi-room-info.page';
 import { AuditoriumPage } from './booking/auditorium/auditorium.page';
 import { MultiRoomPage } from './booking/multi-room/multi-room.page';
+import { SchedulePage } from './schedule/schedule.page';
+import { ScheduleHeaderComponent } from './schedule/schedule-header/schedule-header.component';
+
+registerLocaleData(localeEs);
 
 @NgModule({
   declarations: [
@@ -34,7 +44,9 @@ import { MultiRoomPage } from './booking/multi-room/multi-room.page';
     AuditoriumsInfoPage,
     MultiRoomInfoPage,
     AuditoriumPage,
-    MultiRoomPage
+    MultiRoomPage,
+    SchedulePage,
+    ScheduleHeaderComponent
   ],
   entryComponents: [],
   imports: [
@@ -45,6 +57,13 @@ import { MultiRoomPage } from './booking/multi-room/multi-room.page';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    CommonModule,
+    NgbModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
+    HttpClientModule
   ],
   providers: [
     StatusBar,

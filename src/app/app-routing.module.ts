@@ -8,6 +8,7 @@ import { AuditoriumsInfoPage } from './rooms/auditoriums-info/auditoriums-info.p
 import { MultiRoomInfoPage } from './rooms/multi-room-info/multi-room-info.page';
 import { AuditoriumPage } from './booking/auditorium/auditorium.page';
 import { MultiRoomPage } from './booking/multi-room/multi-room.page';
+import { SchedulePage } from './schedule/schedule.page';
 
 const routes: Routes = [
   { path: '', redirectTo: 'ingresar', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'multi-room-info', component: MultiRoomInfoPage },
   { path: 'reservas/auditorios', component: AuditoriumPage },
   { path: 'reservas/salasmultiples', component: MultiRoomPage },
+  { path: 'calendario', component: SchedulePage }
 ];
 
 @NgModule({
